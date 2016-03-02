@@ -15,5 +15,5 @@ class PhoneListChecker
     @handler = handler
   end
 
-  delegate :consistant? => :@handler
+  delegate :consistent? => :@handler
 end

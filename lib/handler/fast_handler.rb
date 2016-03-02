@@ -1,5 +1,5 @@
 class FastHandler < BaseHandler
-  def consistant?
+  def consistent?
     build_trie
   end
 

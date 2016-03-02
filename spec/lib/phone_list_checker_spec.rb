@@ -1,7 +1,7 @@
 require_relative "../spec_helper"
 
 RSpec.describe PhoneListChecker do
-  describe "#consistant?" do
+  describe "#consistent?" do
     context "the phone lsit includes a number which is anothr number's prefix" do
       let(:path) { File.join SPEC_ROOT, 'assets', '1_phone_list.txt' }
       let(:reader) { TxtReader.new path }
@@ -9,9 +9,9 @@ RSpec.describe PhoneListChecker do
       subject { PhoneListChecker.new handler }
 
       it "returns false wnen the phone lsit includes a number which is anothr number's prefix" do
-        expect(subject.consistant?).to be_falsey
+        expect(subject.consistent?).to be_falsey
         subject.handler = FastHandler.new reader, Trie.new
-        expect(subject.consistant?).to be_falsey
+        expect(subject.consistent?).to be_falsey
       end
     end
 
@@ -22,9 +22,9 @@ RSpec.describe PhoneListChecker do
       subject { PhoneListChecker.new handler }
 
       it "returns true wnen the phone list dose'nt includes a number which is another number's prefix" do
-        expect(subject.consistant?).to be_truthy
+        expect(subject.consistent?).to be_truthy
         subject.handler = FastHandler.new reader, Trie.new
-        expect(subject.consistant?).to be_truthy
+        expect(subject.consistent?).to be_truthy
       end
     end
   end

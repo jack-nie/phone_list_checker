@@ -6,7 +6,7 @@ class BaseHandler
     @container = container
   end
 
-  def consistant?
-    raise NotImplementedError, "subclass must implement method consistant?"
+  def consistent?
+    raise NotImplementedError, "subclass must implement method consistent?"
   end
 end
