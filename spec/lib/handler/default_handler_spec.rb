@@ -6,7 +6,7 @@ RSpec.describe DefaultHandler do
     let(:reader) { TxtReader.new path }
     subject { DefaultHandler.new reader }
 
-    it "returns false wnen the phone lsit includes a number which is anothr number's prefix" do
+    it "returns false wnen the phone list includes a number which is another number's prefix" do
       expect(subject.consistant?).to be_falsey
     end
   end
