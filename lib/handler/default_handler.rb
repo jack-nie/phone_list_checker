@@ -14,6 +14,6 @@ class DefaultHandler < BaseHandler
 
   def sort_array_by_dict_ordinal
     build_array
-    container.map(&:to_s).sort
+    container.map!(&:to_s).sort!
   end
 end
