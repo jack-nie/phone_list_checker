@@ -1,5 +1,3 @@
-require_relative "base_handler"
-
 class DefaultHandler < BaseHandler
   def consistant?
     sort_array_by_dict_ordinal
