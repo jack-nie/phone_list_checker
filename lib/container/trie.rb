@@ -1,22 +1,21 @@
-class Trie
-  attr_reader :root
+module Container
+  class Trie
+    attr_reader :root
 
-  def initialize
-    @root = {}
-  end
-
-  def build str
-    node = @root
-    str.each_char do |ch|
-      return false if node[:end]
-      node[ch] ||= Hash.new
-      node = node[ch]
+    def initialize
+      @root = {}
     end
-    if (0..9).any? { |i| !node["#{i.to_s}"].nil? }
-      return false
-    else
+
+    def build(str)
+      node = @root
+      str.each_char do |ch|
+        return false if node[:end]
+        node[ch] ||= {}
+        node = node[ch]
+      end
+      return false if (0..9).any? { |i| !node[i.to_s].nil? }
       node[:end] = true
+      true
     end
-    true
   end
 end

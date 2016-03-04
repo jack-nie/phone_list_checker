@@ -1,12 +1,14 @@
-class BaseHandler
-  attr_accessor :reader, :container
+module Handler
+  class BaseHandler
+    attr_accessor :reader, :container
 
-  def initialize reader, container = []
-    @reader    = reader
-    @container = container
-  end
+    def initialize(reader, container = [])
+      @reader    = reader
+      @container = container
+    end
 
-  def consistent?
-    raise NotImplementedError, "subclass must implement method consistent?"
+    def consistent?
+      raise NotImplementedError, 'subclass must implement method consistent?'
+    end
   end
 end

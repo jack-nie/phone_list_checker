@@ -1,10 +1,10 @@
-require_relative "../../spec_helper"
+require_relative '../../spec_helper'
 
-RSpec.describe TxtReader do
+RSpec.describe Reader::TxtReader do
   describe '#each_line' do
     let(:path) { File.join(SPEC_ROOT, 'assets', '1_phone_list.txt') }
     let(:words) { File.readlines(path).map(&:chomp) }
-    subject { TxtReader.new path }
+    subject { Reader::TxtReader.new path }
 
     it 'yields every word yielded by the file' do
       yielded_words = []
