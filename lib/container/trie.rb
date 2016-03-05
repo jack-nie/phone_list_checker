@@ -6,9 +6,9 @@ module Container
       @root = {}
     end
 
-    def build(str)
+    def build(word)
       node = @root
-      str.each_char do |ch|
+      word.each_char do |ch|
         return false if node[:end]
         node[ch] ||= {}
         node = node[ch]

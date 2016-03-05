@@ -7,7 +7,13 @@ module Reader
     end
 
     def each_line
-      File.open(path, 'rb') { |file| file.each_line { |line| yield line if block_given? } } if path
+      open { |file| file.each_line { |line| yield line if block_given? } }
+    end
+
+    private
+
+    def open
+      File.open(path, 'rb') { |file| yield file } if path
     end
   end
 end
